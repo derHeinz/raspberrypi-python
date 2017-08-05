@@ -9,6 +9,7 @@ Scripts for following UseCases are present:
 * Interact with ['Havir Antilost' Bluetooth 4.0 button](https://www.amazon.de/Havir-Bluetooth-Anti-Anti-Diebstahl-Ger%C3%A4te-Haustiereaufrufer/dp/B019OOCV1I/ref=sr_1_2?ie=UTF8&qid=1477752354&sr=8-2&keywords=bluetooth+havir)
 * Interact with my [other application for old smartphones](https://github.com/derHeinz/HouseholdHelper)
 * Interact with openhab (get and set)
+* Read Data from MiFlower compatible devices https://www.amazon.de/Ollivan-kabelloser-Pflanzen-Sensor-Bluetooth-N%C3%A4hrstoff/dp/B01LWYZUSJ
 * Parse events from .ics files, such as holidays
 
 
