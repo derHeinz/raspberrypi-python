@@ -3,17 +3,19 @@
 
 import pexpect # install with: pip install pexpect
 import argparse
+import datetime
 import imp
 import time
 import binascii
 import urllib2
 import threading
 import postopenhab
+from bluepy import btle
 
 # location of bluepy
-bluepy_location = '/home/pi/bluepy/bluepy/btle.py'
+#bluepy_location = '/home/pi/bluepy/bluepy/btle.py'
 # load bluepy
-btle = imp.load_source('btle', bluepy_location)
+#btle = imp.load_source('btle', bluepy_location)
 
 bt_rad_message_type = "bt_rad"
 
@@ -91,6 +93,20 @@ class BluetoothCommand:
 		self._set_value('41' + value)
 		self._disconnect()
 		return 'OK'
+		
+	def set_time(self):
+		self._connect()
+		datetimeobj = datetime.datetime.now()
+		command_prefix = "03"
+		year = "{:02X}".format(datetimeobj.year % 100)
+		month = "{:02X}".format(datetimeobj.month)
+		day = "{:02X}".format(datetimeobj.day)
+		hour = "{:02X}".format(datetimeobj.hour)
+		minute = "{:02X}".format(datetimeobj.minute)
+		second = "{:02X}".format(datetimeobj.second)
+		control_string = "{}{}{}{}{}{}{}".format(command_prefix, year, month, day, hour, minute, second)
+		self._set_value(control_string)
+		self._disconnect()
 
 class PExpectBC(BluetoothCommand):
 	"""Uses the Pexpect library to communicate with bluetooth"""
@@ -169,9 +185,9 @@ def main():
 	parser.add_argument("-a", dest = "address", metavar = "address", nargs = "?",
 		help="MAC Address of the BT device.")
 	parser.add_argument("-c", dest = "command", metavar = "command", nargs = "?",
-		help="Options: getTemp, setTemp, getVent, setVent, getMode, setMode, setBoost, setDay.")
+		help="Options: getTemp, setTemp, getVent, setVent, getMode, setMode, setBoost, setDay, setTime.")
 	parser.add_argument("-v", dest = "value", metavar = "value", nargs = "?",
-		help="Optional value if a set function is used.")
+		help="Optional value if a set function is used that needs it.")
 	args = parser.parse_args()
 	bt_cmd = BluepyBC(args.address)
 	try:
@@ -184,6 +200,9 @@ def main():
 		elif (args.command == 'getMode'):
 			what = "Modus auslesen."
 			result = bt_cmd.get_mode()
+		elif (args.command == 'setTime'):
+			what = "Aktuelle Zeit setzen."
+			result = bt_cmd.set_time()
 		elif (args.command == 'setTemp'):
 			what = "Temperatur setzen."
 			result = bt_cmd.set_temp(args.value)
@@ -195,8 +214,11 @@ def main():
 			result = bt_comd.set_boost(args.value)
 		else:
 			result = "Error: no command"
-	except btle.BTLEException:
-		postopenhab.post_systemnotification("Heizthermostat-Fehler beim " + what , bt_rad_message_type)
+	except btle.BTLEException as e:
+		# temporary commented due to BT problems with eq3
+		# postopenhab.post_systemnotification("Heizthermostat-Fehler beim " + what , bt_rad_message_type)
+		print e
+		
 		print "Error: Keine Kommunikation zu Thermostat."
 	else:
 		print result
