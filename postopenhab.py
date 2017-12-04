@@ -15,6 +15,18 @@ def post_value_to_openhab(itemname, value):
 	params_bytes = value.encode('utf-8')
 	req = urllib2.Request(url, params_bytes, header)
 	response = urllib2.urlopen(req)
+	
+def put_value_to_openhab(itemname, value):
+	# construct URL
+	url = 'http://localhost:8080/rest/items/' + itemname + '/state'
+	# need to have this header all other headers are ignored!
+	header = {"Content-Type":"text/plain"}
+	params_bytes = value.encode('utf-8')
+	req = urllib2.Request(url, params_bytes, header)
+	req.get_method = lambda: 'PUT'
+	opener = urllib2.build_opener(urllib2.HTTPHandler)
+	response = opener.open(req).read()
+	#response = urllib2.urlopen(req)
 		
 def get_switch_value_from_openhab(itemname):
 	url = 'http://localhost:8080/rest/items/' + itemname
