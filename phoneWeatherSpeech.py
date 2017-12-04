@@ -25,4 +25,9 @@ def get_weather_forecast_text():
 
 
 message = get_weather_forecast_text()
-phoneIntegration.speak(message)
+
+try:
+	phoneIntegration.speak(message)
+except urllib2.URLError:
+	postopenhab.post_systemnotification("Speak", "Failed to speak.")
+
