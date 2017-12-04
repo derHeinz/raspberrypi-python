@@ -4,7 +4,7 @@ Library for working with GPIOs.
 
 import argparse
 import sys
-import wiringpi2
+import wiringpi
 import time
 
 class GPIOAccess:
@@ -15,33 +15,33 @@ class GPIOAccess:
 	
 	def _setup(self):
 		if not (self.setupDone):
-			wiringpi2.wiringPiSetupGpio()
+			wiringpi.wiringPiSetupGpio()
 			self.setupDone = True
 	
 	def read(self, gpio):
 		self._setup()
-		wiringpi2.pinMode(gpio, 0)
-		state = wiringpi2.digitalRead(gpio)
+		wiringpi.pinMode(gpio, 0)
+		state = wiringpi.digitalRead(gpio)
 		return state
 		
 	def write(self, gpio, state):
 		self._setup()
-		wiringpi2.pinMode(gpio, 1)
-		wiringpi2.digitalWrite(gpio, state)
+		wiringpi.pinMode(gpio, 1)
+		wiringpi.digitalWrite(gpio, state)
 		
 	def switch_off_on(self, gpio, timeout):
 		self._setup()
-		wiringpi2.pinMode(gpio, 1)
-		wiringpi2.digitalWrite(gpio, 0)
+		wiringpi.pinMode(gpio, 1)
+		wiringpi.digitalWrite(gpio, 0)
 		time.sleep(timeout)
-		wiringpi2.digitalWrite(gpio, 1)
+		wiringpi.digitalWrite(gpio, 1)
 		
 	def switch_on_off(self, gpio, timeout):
 		self._setup()
-		wiringpi2.pinMode(gpio, 1)
-		wiringpi2.digitalWrite(gpio, 1)
+		wiringpi.pinMode(gpio, 1)
+		wiringpi.digitalWrite(gpio, 1)
 		time.sleep(timeout)
-		wiringpi2.digitalWrite(gpio, 0)
+		wiringpi.digitalWrite(gpio, 0)
 		
 def main():
 	parser = argparse.ArgumentParser(description="DO sth. with GPIOs.")
