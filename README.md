@@ -4,14 +4,19 @@ Python scripts I use in conjunction with home automation system on Raspberry pi
 
 Scripts for following UseCases are present:
 ===
+
+BLE related:
 * *bt-radiator.py* Interact with [eQ-3 Bluetooth 4.0 Smart radiator](https://www.amazon.de/eqiva-Bluetooth-Smart-Heizk%C3%B6rperthermostat-141771A1A/dp/B014VHFR6Y/ref=sr_1_6?ie=UTF8&qid=1477752458&sr=8-6&keywords=eq3+heizk%C3%B6rperthermostat)
 * *btspeaker.py* Play audio to external Bluetooth speaker
 * *havir-antilost.py* Interact with ['Havir Antilost' Bluetooth 4.0 button](https://www.amazon.de/Havir-Bluetooth-Anti-Anti-Diebstahl-Ger%C3%A4te-Haustiereaufrufer/dp/B019OOCV1I/ref=sr_1_2?ie=UTF8&qid=1477752354&sr=8-2&keywords=bluetooth+havir)
+* *read-flower-mate.py* Read Data from MiFlower compatible devices https://www.amazon.de/Ollivan-kabelloser-Pflanzen-Sensor-Bluetooth-N%C3%A4hrstoff/dp/B01LWYZUSJ
+
+
+Others:
 * *phoneIntegration.py* Interact with my [other application for old smartphones](https://github.com/derHeinz/HouseholdHelper)
 * *phoneNewsSpeech.py* Get some newsfeeds, read it out and send to household helper
 * *phoneWeatherSpeech.py* Get some weather information and speak them out at household helper
 * *postopenhab.py* Interact with openhab (get and set)
-* *read-flower-mate.py* Read Data from MiFlower compatible devices https://www.amazon.de/Ollivan-kabelloser-Pflanzen-Sensor-Bluetooth-N%C3%A4hrstoff/dp/B01LWYZUSJ
 * *calendarparse.py* Parse events from .ics files, such as holidays
 * *wakeonlan.py* Send some wake-on-lan packages to wake-up WOL device
 * *wpgpio.py* Swicht some raspberrypi GPIOs
