@@ -119,7 +119,7 @@ class ScanResult(object):
 		return self.parts
 		
 	def get_services(self):
-		return filter(lambda x: isinstance(x, SingleServiceResult), self.parts)
+		return filter(lambda x: isinstance(x, ServiceResult), self.parts)
 		
 	def get_name(self):
 		for part in self.parts:
