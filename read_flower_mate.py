@@ -60,8 +60,3 @@ class MiFlowerMate():
 		results = self._parse_data(charact_result_ints)
 		self._disconnnect()
 		return results
-
-# get mac from command line
-flower = MiFlowerMate(sys.argv[1])
-results = flower.get_information()
-print(results)

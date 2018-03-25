@@ -6,10 +6,7 @@ Scripts for following UseCases are present:
 ===
 
 BLE related:
-* *bt-radiator.py* Interact with [eQ-3 Bluetooth 4.0 Smart radiator](https://www.amazon.de/eqiva-Bluetooth-Smart-Heizk%C3%B6rperthermostat-141771A1A/dp/B014VHFR6Y/ref=sr_1_6?ie=UTF8&qid=1477752458&sr=8-6&keywords=eq3+heizk%C3%B6rperthermostat)
-* *btspeaker.py* Play audio to external Bluetooth speaker
-* *havir-antilost.py* Interact with ['Havir Antilost' Bluetooth 4.0 button](https://www.amazon.de/Havir-Bluetooth-Anti-Anti-Diebstahl-Ger%C3%A4te-Haustiereaufrufer/dp/B019OOCV1I/ref=sr_1_2?ie=UTF8&qid=1477752354&sr=8-2&keywords=bluetooth+havir)
-* *read-flower-mate.py* Read Data from MiFlower compatible devices https://www.amazon.de/Ollivan-kabelloser-Pflanzen-Sensor-Bluetooth-N%C3%A4hrstoff/dp/B01LWYZUSJ
+* *read_flower_mate.py* Read Data from MiFlower compatible devices https://www.amazon.de/Ollivan-kabelloser-Pflanzen-Sensor-Bluetooth-N%C3%A4hrstoff/dp/B01LWYZUSJ
 * *scan_results.py* Parse BLE advertisements to get their data. Use bluepy (https://github.com/IanHarvey/bluepy) the Scanner class and pass device.rawData to ScanResultParser.process_device_raw_data.
 * *xiaomiTemphum.py" Read battery level, humidity and temperature from Xiaomi Temperature and Humidity Sensor (https://de.aliexpress.com/item/Original-Xiaomi-Mijia-Bluetooth-Temperatur-Intelligente-Luftfeuchtigkeit-Sensor-Lcd-bildschirm-Digitale-Thermometer-Feuchtigkeit-Meter-Mi-Hause/32843325647.html)
 
