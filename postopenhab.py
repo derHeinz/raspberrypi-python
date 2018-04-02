@@ -27,8 +27,8 @@ def put_value_to_openhab(itemname, value):
 	opener = urllib2.build_opener(urllib2.HTTPHandler)
 	response = opener.open(req).read()
 	#response = urllib2.urlopen(req)
-		
-def get_switch_value_from_openhab(itemname):
+	
+def get_value_from_openhab(itemname):
 	url = 'http://localhost:8080/rest/items/' + itemname
 	# need to have this header all other headers are ignored!
 	header = {"Content-Type":"text/plain"}
@@ -36,6 +36,10 @@ def get_switch_value_from_openhab(itemname):
 	res = urllib2.urlopen(req)
 	root = ET.fromstring(res.read())
 	val = root.findall(".//state")[0].text
+	return val
+		
+def get_switch_value_from_openhab(itemname):
+	val = get_value_from_openhab(itemname)
 	if ("OFF" == val):
 		return False
 	elif ("ON" == val):
