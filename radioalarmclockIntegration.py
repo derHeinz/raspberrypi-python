@@ -39,3 +39,11 @@ class RadioAlarmClock:
 		value = json.dumps({str: onoff})
 		return self._set(str, value)
 		
+	def get_play(self):
+		return self._get("play")
+		
+	def set_play(self, onoff):
+		str = "play"
+		value = json.dumps({str: onoff})
+		return self._set(str, value)
+		
