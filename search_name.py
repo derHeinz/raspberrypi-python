@@ -22,4 +22,9 @@ def check_online(ip):
 	if subprocess.call(["ping", "-c1", "-w1", "-t1", ip], stdout=open(os.devnull, 'w')) == 0:
 		return True
 	return False
+	
+def find_online_ip(mac_or_name):
+	for ip in find_ips(mac_or_name):
+		if check_online(ip):
+			return ip
 				
