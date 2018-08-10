@@ -19,3 +19,4 @@ Others:
 * *calendarparse.py* Parse events from .ics files, such as holidays
 * *wakeonlan.py* Send some wake-on-lan packages to wake-up WOL device
 * *wpgpio.py* Swicht some raspberrypi GPIOs
+* *search_name.py* Finds IPs for mac or hostname via arp table
