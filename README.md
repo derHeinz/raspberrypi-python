@@ -20,3 +20,4 @@ Others:
 * *wakeonlan.py* Send some wake-on-lan packages to wake-up WOL device
 * *wpgpio.py* Swicht some raspberrypi GPIOs
 * *search_name.py* Finds IPs for mac or hostname via arp table
+* *energenie_eg_pm2_lan.py* Energenie EG-PM2-LAN can be read/set with this little python class
