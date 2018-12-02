@@ -28,6 +28,7 @@ def find_online_ip_by_mac(mac):
 	# uncomment mac
 	if ("-" in mac):
 		mac = mac.replace("-", ":")
+	mac = mac.lower()
 	return find_online_ip(mac)
 	
 def find_online_ip(mac_or_name):
