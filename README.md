@@ -1,6 +1,8 @@
 # Python Scripts
 
-Python scripts I use in conjunction with home automation system on Raspberry pi
+Python scripts I use in conjunction with home automation system on Raspberry pi.
+
+Scripts are written for Python2, some are updated to Python3.
 
 Scripts for following UseCases are present:
 ===
@@ -21,3 +23,14 @@ Others:
 * *wpgpio.py* Swicht some raspberrypi GPIOs
 * *search_name.py* Finds IPs for mac or hostname via arp table
 * *energenie_eg_pm2_lan.py* Energenie EG-PM2-LAN can be read/set with this little python class
+* *error_hospital.py* general util for writing errors to file
+* *radioalarmclockIntegration.py* cli integration to https://github.com/derHeinz/radioalarmclock
+* *raspberryHealthIntegration.py* cli integration to https://github.com/derHeinz/raspberry_health
+
+Python3.x compatibilty:
+* *calendarparse.py*
+* *error_hospital.py*
+* *postopenhab.py*
+* *radioalarmclockIntegration.py*
+* *raspberryHealthIntegration.py*
+* *search_name.py*
