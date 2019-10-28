@@ -4,7 +4,6 @@
 from urllib.request import urlopen, build_opener, HTTPHandler, Request
 import json
 import datetime
-from . postopenhab import post_value_to_openhab
 
 def post_value_to_openhab(itemname, value):
     # construct URL
