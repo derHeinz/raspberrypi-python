@@ -57,5 +57,5 @@ def post_today_event_to_openhab(itemname, file_or_list):
 
 def post_tomorrow_event_to_openhab(itemname, file_or_list):
     day = arrow.utcnow()
-    day = day.replace(days=+1)
+    day = day.shift(days=+1)
     post_event_to_openhab(day, itemname, file_or_list)
